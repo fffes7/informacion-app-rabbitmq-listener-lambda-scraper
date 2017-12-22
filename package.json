@@ -1,0 +1,17 @@
+{
+  "name": "informacion-app-rabbitmq-listener-lambda-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "autofact-lib-queue": "git+ssh://git@bitbucket.org/autofact/autofact-lib-queue.git",
+    "aws-sdk": "^2.174.0",
+    "dotenv": "^4.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
