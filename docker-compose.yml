@@ -1,0 +1,9 @@
+version: '2'
+services:
+  rabbitmq_listener:
+    environment:
+      QUEUE_USER: "user"
+    build:
+      context: ./
+    volumes:
+      - ./:/usr/src/app

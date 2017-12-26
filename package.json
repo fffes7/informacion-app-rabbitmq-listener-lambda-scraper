@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node test.js"
   },
   "dependencies": {
-    "autofact-lib-queue": "git+ssh://git@bitbucket.org/autofact/autofact-lib-queue.git",
     "aws-sdk": "^2.174.0",
     "dotenv": "^4.0.0"
   },

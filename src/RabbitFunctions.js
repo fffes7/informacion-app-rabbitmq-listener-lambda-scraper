@@ -2,7 +2,7 @@
  * Created by xadrian on 7/11/17.
  */
 var amqp           = require('amqplib');
-const QUEUE_HOST   = process.env.QUEUE_HOST || '172.17.0.2';//'rbmq.autofact.qa';
+const QUEUE_HOST   = process.env.QUEUE_HOST || '192.168.0.122';//'rbmq.autofact.qa';
 const QUEUE_PORT   = process.env.QUEUE_PORT || 5672;
 const QUEUE_USER   = process.env.QUEUE_USER || 'user';
 const QUEUE_PASSWD = process.env.QUEUE_PASSWD || 'user';
@@ -26,7 +26,7 @@ class RabbitHelper {
                     console.log('Closing connection');
                     connection.close();
                 });
-            }).then(resolve).catch(error=> {
+            }).catch(error=> {
                 console.log(error);
                 return reject(error);
             });
@@ -36,7 +36,8 @@ class RabbitHelper {
 
     consumerFromRabbit(queue, _function) {
         return new Promise((resolve, reject)=> {
-             amqp.connect('amqp://' + QUEUE_USER + ':' + QUEUE_PASSWD + '@' + QUEUE_HOST + ':' + QUEUE_PORT + '/' + QUEUE_VHOST).then((conn) => {
+            console.log('amqp://' + QUEUE_USER + ':' + QUEUE_PASSWD + '@' + QUEUE_HOST + ':' + QUEUE_PORT + '/' + QUEUE_VHOST);
+            amqp.connect('amqp://' + QUEUE_USER + ':' + QUEUE_PASSWD + '@' + QUEUE_HOST + ':' + QUEUE_PORT + '/' + QUEUE_VHOST).then((conn) => {
                 console.log('Connection established');
                  return conn.createChannel().then(ch=>{
 
